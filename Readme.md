@@ -18,7 +18,7 @@ Clipboard Manager is a simple Python application that helps you manage your clip
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/clipboard-manager.git
+   git clone https://github.com/finaticthegee/clipboard-manager.git
    cd clipboard-manager
    ```
 
