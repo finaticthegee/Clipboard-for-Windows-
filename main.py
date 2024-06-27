@@ -1,4 +1,7 @@
-import tkinter as tk
+from textwrap import fill
+import customtkinter as ctk
+
+# import tkinter as tk
 from tkinter import simpledialog, messagebox
 import pyperclip as pc
 
@@ -6,37 +9,37 @@ import pyperclip as pc
 from memory_profiler import profile
 
 
-
-
 class ClipBoardManager:
     def __init__(self, root) -> None:
         self.root = root
         self.root.title("TheCopyPaster")
+        self.root.geometry("400x300")  # Window size
         # Empty window initialised
 
         self.clipboard_history = []
 
         # Creating a frame within the window
-        self.frame = tk.Frame(root)
-        self.frame.pack(pady=10)
+        self.frame = ctk.CTkFrame(root)
+        self.frame.pack(pady=20, padx=20, fill="both", expand=True)
 
         # Creating copy to clipboard button complete with function
-        self.add_button = tk.Button(
+        self.add_button = ctk.CTkButton(
             self.frame, text="Copy to Clipboard", command=self.copy_to_clipboard
         )
-        self.add_button.pack(side=tk.LEFT, padx=5)
+        self.add_button.pack(pady=10)
 
-        self.view_button = tk.Button(
+        self.view_button = ctk.CTkButton(
             self.frame, text="View Clips", command=self.view_history
         )
-        self.view_button.pack(side=tk.LEFT, padx=5)
+        self.view_button.pack(pady=10)
 
-        self.paste_button = tk.Button(
+        self.paste_button = ctk.CTkButton(
             self.frame, text="Paste from clipboard", command=self.paste_from_clipboard
         )
-        self.paste_button.pack(side=tk.LEFT, padx=5)
+        self.paste_button.pack(pady=10)
 
         # Copies a text to the system clipboard
+
     @profile
     # track method memory usage
     def copy_to_clipboard(self):
@@ -83,6 +86,8 @@ class ClipBoardManager:
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
+    ctk.set_appearance_mode("dark")  # Modes of display
+    ctk.set_default_color_theme("blue")
+    root = ctk.CTk()
     app = ClipBoardManager(root)
     root.mainloop()
