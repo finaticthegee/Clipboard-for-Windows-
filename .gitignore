@@ -1,2 +1,6 @@
 Test.ipynb
 /.vscode
+/build
+/dist
+features.txt
+main.spec
